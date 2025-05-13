@@ -4,7 +4,7 @@ import '../index.css';
 
 const initState = {
   date: null,
-  distance: null,
+  distance: 0,
 };
 
 const AddTrainingForm: FC = () => {
@@ -34,14 +34,13 @@ const AddTrainingForm: FC = () => {
     <form className="train-form" onSubmit={handleSubmit}>
       <div className="date-box">
         <label htmlFor="date" className="date-title">
-          Дата(ДД.ММ.ГГ)
+          Дата (ДД.ММ.ГГ)
         </label>
         <input
           className="input-date"
           name="date"
           type="date"
           id="date"
-          placeholder="ДД.ММ.ГГ"
           onChange={handleChange}
           value={newTrainData.date || ''}
         />
@@ -61,7 +60,7 @@ const AddTrainingForm: FC = () => {
         />
       </div>
       <button type="submit" className="submit-btn">
-        ok
+        OK
       </button>
     </form>
   );

@@ -1,4 +1,6 @@
 .app {
+  display: flex;
+  justify-content: center;
   height: 100vh;
   width: 100vw;
   margin: 0;
@@ -7,37 +9,61 @@
 
 .wrap {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  min-width: 700px;
+  padding-top: 50px; 
+  width: 100%;
+  max-width: 800px; 
 }
 
 .train-form {
   display: flex;
-  justify-content: space-between;
-  margin-top: 50px;
+  gap: 15px; 
+  align-items: flex-end; 
+  width: 100%;
 }
 
 .date-box, .distance-box {
   display: flex;
   flex-direction: column;
+  flex: 1; 
+  position: relative;
 }
 
 .date-title, .distance-title {
   position: absolute;
-  z-index: 2;
-  inset: 30px auto 0px;
+  top: -25px; 
+  left: 0;
+  font-size: 14px;
+  color: #333;
 }
 
-.input-date, .input-distance {
-  padding: 20px 20px;
-  border-radius: 10px;
+.input-date, .input-distance, .submit-btn {
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  height: 48px; 
+}
+
+.input-date:focus, .input-distance:focus {
+  outline: none;
+  border-color: #646cff;
 }
 
 .submit-btn {
-  padding: 10px 20px;
-  text-transform: uppercase;
-  background: white;
-  border-radius: 10px;
+  background-color: #646cff;
+  color: white;
+  border: none;
+  cursor: pointer;
   font-weight: bold;
+  text-transform: uppercase;
+  flex: 0.5; 
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #535bf2;
 }
