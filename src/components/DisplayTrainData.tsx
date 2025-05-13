@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import type { TrainSession } from '../types/TrainSession';
+import { TrainItem } from '../components/TrainItem';
 
 interface DisplayTrainDataProps {
   trainList: TrainSession[];
@@ -15,7 +16,7 @@ const DisplayTrainData: FC<DisplayTrainDataProps> = ({ trainList }) => {
       </div>
       <div className="train-list">
         {trainList.map((train) => {
-          return train.distance;
+          return <TrainItem key={train.id} train={train}/>
         })}
       </div>
     </div>

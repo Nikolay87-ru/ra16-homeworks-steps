@@ -94,3 +94,10 @@
   padding: 12px 15px;
   border-radius: 8px;
 }
+
+.train-item {
+  display: flex; 
+  justify-content: space-around; 
+  align-items: flex-end;
+  padding: 12px 15px;
+}
