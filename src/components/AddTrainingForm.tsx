@@ -15,6 +15,12 @@ const AddTrainingForm: FC = () => {
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     console.log(`Handle Change: `, e.target);
+
+    const { name, value } = e.target;
+    setNewTrainData({
+      ...newTrainData,
+      [name]: value,
+    });
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -22,27 +28,41 @@ const AddTrainingForm: FC = () => {
     console.log('Form submitted:', newTrainData);
   };
 
+  console.log(`New Data: `, newTrainData);
+
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="date">Дата(ДД.ММ.ГГ)</label>
-      <input
-        name="date"
-        type="date"
-        id="date"
-        placeholder="ДД.ММ.ГГ"
-        onChange={handleChange}
-        value={newTrainData.date || ''}
-      />
-      <label htmlFor="distance">Дата(ДД.ММ.ГГ)</label>
-      <input
-        name="distance"
-        type="text"
-        id="distance"
-        placeholder="0 км"
-        onChange={handleChange}
-        value={newTrainData.distance || ''}
-      />
-      <button type="submit">ok</button>
+    <form className="train-form" onSubmit={handleSubmit}>
+      <div className="date-box">
+        <label htmlFor="date" className="date-title">
+          Дата(ДД.ММ.ГГ)
+        </label>
+        <input
+          className="input-date"
+          name="date"
+          type="date"
+          id="date"
+          placeholder="ДД.ММ.ГГ"
+          onChange={handleChange}
+          value={newTrainData.date || ''}
+        />
+      </div>
+      <div className="distance-box">
+        <label htmlFor="distance" className="distance-title">
+          Пройдено км
+        </label>
+        <input
+          className="input-distance"
+          name="distance"
+          type="text"
+          id="distance"
+          placeholder="0 км"
+          onChange={handleChange}
+          value={newTrainData.distance || ''}
+        />
+      </div>
+      <button type="submit" className="submit-btn">
+        ok
+      </button>
     </form>
   );
 };
