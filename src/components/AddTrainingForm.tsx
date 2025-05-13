@@ -1,13 +1,18 @@
 import type { ChangeEvent, FC, FormEvent } from 'react';
 import { useState } from 'react';
+import type { TrainSession } from '../types/TrainSession';
 import '../index.css';
+
+interface AddTrainingFormProps {
+  addTrainData: (newTrainSession: TrainSession) => void;
+}
 
 const initState = {
   date: null,
   distance: 0,
 };
 
-const AddTrainingForm: FC = () => {
+const AddTrainingForm: FC<AddTrainingFormProps> = ({addTrainData}) => {
   const [newTrainData, setNewTrainData] = useState<{
     date: string | null;
     distance: number | null;
@@ -25,7 +30,15 @@ const AddTrainingForm: FC = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form submitted:', newTrainData);
+    const { date, distance } = newTrainData;
+
+    if (date && distance) {
+      addTrainData({
+        date,
+        distance: String(distance),
+        id: Date.now(),
+      })
+    }
   };
 
   console.log(`New Data: `, newTrainData);
