@@ -95,9 +95,35 @@
   border-radius: 8px;
 }
 
-.train-item {
-  display: flex; 
-  justify-content: space-around; 
-  align-items: flex-end;
+.train-item, .train-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.train-item:last-child, .train-form:last-child {
+  border-bottom: none;
+}
+
+.train-item span, .train-form > div {
+  flex: 1;
+  text-align: center;
+}
+
+.train-controls {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.icon {
+  cursor: pointer;
+  font-size: 24px;
+  transition: color 0.2s;
+}
+
+.icon:hover {
+  color: #646cff;
 }

@@ -12,13 +12,25 @@ const App: FC = () => {
     setTrainList([...trainList, newTrainSession]);
   };
 
-  console.log(`trainList: `, trainList);
+  const updateTrain = (newTrain: TrainSession) => {
+    setTrainList(trainList.map((train) => 
+      train.id === newTrain.id ? newTrain : train
+    ));
+  };
+
+  const deleteTrain = (id: number) => {
+    setTrainList(trainList.filter((train) => train.id !== id));
+  };
 
   return (
     <div className="app">
       <div className="wrap">
         <AddTrainingForm addTrainData={addTrainData} />
-        <DisplayTrainData trainList={trainList} />
+        <DisplayTrainData 
+          trainList={trainList} 
+          updateTrain={updateTrain}
+          onDelete={deleteTrain} 
+        />
       </div>
     </div>
   );

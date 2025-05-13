@@ -4,9 +4,15 @@ import { TrainItem } from '../components/TrainItem';
 
 interface DisplayTrainDataProps {
   trainList: TrainSession[];
+  updateTrain: (newTrain: TrainSession) => void;
+  onDelete: (id: number) => void;
 }
 
-const DisplayTrainData: FC<DisplayTrainDataProps> = ({ trainList }) => {
+const DisplayTrainData: FC<DisplayTrainDataProps> = ({ 
+  trainList, 
+  updateTrain,
+  onDelete 
+}) => {
   return (
     <div className="container">
       <div className="container-titles">
@@ -15,9 +21,14 @@ const DisplayTrainData: FC<DisplayTrainDataProps> = ({ trainList }) => {
         <span>Действия</span>
       </div>
       <div className="train-list">
-        {trainList.map((train) => {
-          return <TrainItem key={train.id} train={train}/>
-        })}
+        {trainList.map((train) => (
+          <TrainItem 
+            key={train.id} 
+            train={train} 
+            updateTrain={updateTrain}
+            onDelete={onDelete}
+          />
+        ))}
       </div>
     </div>
   );
