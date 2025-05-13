@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import { useState } from 'react';
 import AddTrainingForm from './components/AddTrainingForm';
+import DisplayTrainData from './components/DisplayTrainData';
 import type { TrainSession } from './types/TrainSession';
 import './index.css';
 
@@ -8,17 +9,16 @@ const App: FC = () => {
   const [trainList, setTrainList] = useState<TrainSession[]>([]);
 
   const addTrainData = (newTrainSession: TrainSession) => {
-    setTrainList([...trainList, newTrainSession])
-  }
+    setTrainList([...trainList, newTrainSession]);
+  };
 
-console.log(`trainList: `, trainList);
+  console.log(`trainList: `, trainList);
 
   return (
     <div className="app">
       <div className="wrap">
-        <AddTrainingForm 
-          addTrainData={addTrainData}
-        />
+        <AddTrainingForm addTrainData={addTrainData} />
+        <DisplayTrainData trainList={trainList} />
       </div>
     </div>
   );
