@@ -12,7 +12,7 @@ const initState = {
   distance: 0,
 };
 
-const AddTrainingForm: FC<AddTrainingFormProps> = ({addTrainData}) => {
+const AddTrainingForm: FC<AddTrainingFormProps> = ({ addTrainData }) => {
   const [newTrainData, setNewTrainData] = useState<{
     date: string | null;
     distance: number | null;
@@ -37,7 +37,8 @@ const AddTrainingForm: FC<AddTrainingFormProps> = ({addTrainData}) => {
         date,
         distance: String(distance),
         id: Date.now(),
-      })
+      });
+      setNewTrainData(initState);
     }
   };
 
