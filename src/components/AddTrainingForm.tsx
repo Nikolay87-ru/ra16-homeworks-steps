@@ -24,7 +24,7 @@ const AddTrainingForm: FC<AddTrainingFormProps> = ({ addTrainData }) => {
     const { name, value } = e.target;
     setNewTrainData({
       ...newTrainData,
-      [name]: value,
+      [name]: name === 'distance' ? Number(value) : value,
     });
   };
 
