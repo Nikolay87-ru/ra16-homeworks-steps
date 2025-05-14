@@ -35,7 +35,7 @@ const AddTrainingForm: FC<AddTrainingFormProps> = ({ addTrainData }) => {
     if (date && distance) {
       addTrainData({
         date,
-        distance: String(distance),
+        distance: Number(distance),
         id: Date.now(),
       });
       setNewTrainData(initState);
@@ -66,7 +66,7 @@ const AddTrainingForm: FC<AddTrainingFormProps> = ({ addTrainData }) => {
         <input
           className="input-distance"
           name="distance"
-          type="text"
+          type="number"
           id="distance"
           placeholder="0 км"
           onChange={handleChange}

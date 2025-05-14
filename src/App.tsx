@@ -8,8 +8,8 @@ import './index.css';
 const App: FC = () => {
   const [trainList, setTrainList] = useState<TrainSession[]>([]);
 
-  const addTrainData = (newTrainSession: TrainSession) => {
-    setTrainList([...trainList, newTrainSession]);
+  const addTrainData = (newTrain: TrainSession) => {
+    setTrainList([...trainList, newTrain]);
   };
 
   const updateTrain = (newTrain: TrainSession) => {

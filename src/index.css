@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
 
 /* Форма */
 
@@ -9,51 +9,56 @@
   width: 100vw;
   margin: 0;
   padding: 0;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
 }
 
 .wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 50px; 
+  padding-top: 50px;
   width: 100%;
-  max-width: 800px; 
+  max-width: 800px;
 }
 
 .train-form {
   display: flex;
-  gap: 15px; 
-  align-items: flex-end; 
+  gap: 15px;
+  align-items: flex-end;
   width: 100%;
 }
 
-.date-box, .distance-box {
+.date-box,
+.distance-box {
   display: flex;
   flex-direction: column;
-  flex: 1; 
+  flex: 1;
   position: relative;
 }
 
-.date-title, .distance-title {
+.date-title,
+.distance-title {
   position: absolute;
-  top: -25px; 
+  top: -25px;
   left: 0;
   font-size: 14px;
   color: #333;
 }
 
-.input-date, .input-distance, .submit-btn {
+.input-date,
+.input-distance,
+.submit-btn {
   padding: 12px 15px;
   border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 16px;
   width: 100%;
   box-sizing: border-box;
-  height: 48px; 
+  height: 48px;
 }
 
-.input-date:focus, .input-distance:focus {
+.input-date:focus,
+.input-distance:focus {
   outline: none;
   border-color: #646cff;
 }
@@ -65,7 +70,7 @@
   cursor: pointer;
   font-weight: bold;
   text-transform: uppercase;
-  flex: 0.5; 
+  flex: 0.5;
   transition: background-color 0.3s;
 }
 
@@ -75,16 +80,16 @@
 
 /* Блок со списком тренировок */
 
-.container { 
+.container {
   width: 100%;
 }
 
 .container-titles {
-  display: flex; 
-  justify-content: space-around; 
-  padding: 10px; 
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 30px;
   margin-top: 50px;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
 }
 
 .train-list {
@@ -95,19 +100,20 @@
   border-radius: 8px;
 }
 
-.train-item, .train-form {
+.train-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 15px;
-  border-bottom: 1px solid #eee;
+  padding-block: 12px;
+  border-top: 1px solid #eee;
+
+  &:last-child {
+    border-top: none;
+  }
 }
 
-.train-item:last-child, .train-form:last-child {
-  border-bottom: none;
-}
-
-.train-item span, .train-form > div {
+.train-item span,
+.train-form div {
   flex: 1;
   text-align: center;
 }
@@ -122,8 +128,8 @@
   cursor: pointer;
   font-size: 24px;
   transition: color 0.2s;
-}
 
-.icon:hover {
-  color: #646cff;
+  &:hover {
+    color: #646cff;
+  }
 }

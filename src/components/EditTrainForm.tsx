@@ -5,7 +5,7 @@ import '../index.css';
 
 interface EditTrainingFormProps {
   data: TrainSession;
-  updateTrain: (newTrain : TrainSession) => void;
+  updateTrain: (newTrain: TrainSession) => void;
   handleToogleEdit: () => void;
 }
 
