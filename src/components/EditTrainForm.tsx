@@ -32,8 +32,6 @@ const EditTrainingForm: FC<EditTrainingFormProps> = ({ data, updateTrain, handle
     }
   };
 
-  console.log(`edit Data: `, editTrainData);
-
   return (
     <form className="train-form" onSubmit={handleSubmit}>
       <div className="date-box">
