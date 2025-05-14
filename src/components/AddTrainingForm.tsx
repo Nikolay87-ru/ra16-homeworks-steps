@@ -19,8 +19,6 @@ const AddTrainingForm: FC<AddTrainingFormProps> = ({ addTrainData }) => {
   }>(initState);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log(`Handle Change: `, e.target);
-
     const { name, value } = e.target;
     setNewTrainData({
       ...newTrainData,
@@ -41,8 +39,6 @@ const AddTrainingForm: FC<AddTrainingFormProps> = ({ addTrainData }) => {
       setNewTrainData(initState);
     }
   };
-
-  console.log(`New Data: `, newTrainData);
 
   return (
     <form className="train-form" onSubmit={handleSubmit}>
