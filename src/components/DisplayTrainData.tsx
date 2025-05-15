@@ -14,8 +14,20 @@ const DisplayTrainData: FC<DisplayTrainDataProps> = ({
   onDelete 
 }) => {
   const formatDate = (dateString: string) => {
-    const [year, month, day] = dateString.split('-');
-    return `${day}.${month}.${year}`;
+    if (!dateString) return "Нет даты";
+    
+    try {
+      const date = new Date(dateString);
+      if (isNaN(date.getTime())) return "Выберите дату!";
+      
+      const day = date.getDate().toString().padStart(2, '0');
+      const month = (date.getMonth() + 1).toString().padStart(2, '0');
+      const year = date.getFullYear();
+      
+      return `${day}.${month}.${year}`;
+    } catch {
+      return "Выберите дату!";
+    }
   };
 
   return (

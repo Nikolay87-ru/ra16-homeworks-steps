@@ -13,8 +13,6 @@ const EditTrainingForm: FC<EditTrainingFormProps> = ({ data, updateTrain, handle
   const [editTrainData, setEditTrainData] = useState<TrainSession>(data);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log(`Handle Change: `, e.target);
-
     const { name, value } = e.target;
     setEditTrainData({
       ...editTrainData,
@@ -24,10 +22,16 @@ const EditTrainingForm: FC<EditTrainingFormProps> = ({ data, updateTrain, handle
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { date, distance } = editTrainData;
+    const { distance } = editTrainData;
+    
+    const date = editTrainData.date || data.date;
 
     if (date && distance) {
-      updateTrain(editTrainData);
+      updateTrain({
+        ...editTrainData,
+        date, 
+        distance: Number(distance),
+      });
       handleToogleEdit();
     }
   };
@@ -48,7 +52,7 @@ const EditTrainingForm: FC<EditTrainingFormProps> = ({ data, updateTrain, handle
         <input
           className="input-distance"
           name="distance"
-          type="text"
+          type="number"
           id="distance"
           placeholder="0 км"
           onChange={handleChange}

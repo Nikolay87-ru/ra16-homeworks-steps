@@ -26,6 +26,7 @@
   gap: 15px;
   align-items: flex-end;
   width: 100%;
+  padding-block: 5px;
 }
 
 .date-box,
