@@ -16,7 +16,7 @@ const DisplayTrainData: FC<DisplayTrainDataProps> = ({
   return (
     <div className="container">
       <div className="container-titles">
-        <span>Дата (ДД.ММ.ГГ)</span>
+        <span>Дата (ГГ.ММ.ДД)</span>
         <span>Пройдено км</span>
         <span>Действия</span>
       </div>
