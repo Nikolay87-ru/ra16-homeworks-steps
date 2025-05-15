@@ -13,10 +13,15 @@ const DisplayTrainData: FC<DisplayTrainDataProps> = ({
   updateTrain,
   onDelete 
 }) => {
+  const formatDate = (dateString: string) => {
+    const [year, month, day] = dateString.split('-');
+    return `${day}.${month}.${year}`;
+  };
+
   return (
     <div className="container">
       <div className="container-titles">
-        <span>Дата (ГГ.ММ.ДД)</span>
+        <span>Дата (ДД.ММ.ГГ)</span>
         <span>Пройдено км</span>
         <span>Действия</span>
       </div>
@@ -24,7 +29,7 @@ const DisplayTrainData: FC<DisplayTrainDataProps> = ({
         {trainList.map((train) => (
           <TrainItem 
             key={train.id} 
-            train={train} 
+            train={{ ...train, date: formatDate(train.date) }} 
             updateTrain={updateTrain}
             onDelete={onDelete}
           />
